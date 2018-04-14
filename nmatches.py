@@ -17,15 +17,16 @@ def numMatches(n):
         diff = n - prev_square
         sqdiff = next_square - prev_square
         halfseq = (sqdiff - 1)/2
-
-        matches = num_matches(prev_root)  # + 2 * diff + (diff < halfseq) ? 1:2
+        matches = numMatches(prev_root)  # + (2 * diff)  #if diff <= halfseq else 2)
 
         if diff <= halfseq:
             matches += 1 + 2 * diff
         else:
             matches += 2 + 2 * diff
 
-    return matches
+        #if n >= 5:
+        #    matches += 5
+        return matches
 
 
 def main():
