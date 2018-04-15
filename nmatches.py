@@ -1,6 +1,6 @@
 import math
 import sys
-
+import unittest
 
 def numMatches(n):
     n = int(n)
@@ -17,15 +17,12 @@ def numMatches(n):
         diff = n - prev_square
         sqdiff = next_square - prev_square
         halfseq = (sqdiff - 1)/2
-        matches = numMatches(prev_root)  # + (2 * diff)  #if diff <= halfseq else 2)
+        matches = numMatches(prev_square) + 2 * diff
 
         if diff <= halfseq:
-            matches += 1 + 2 * diff
+            matches += 1
         else:
-            matches += 2 + 2 * diff
-
-        #if n >= 5:
-        #    matches += 5
+            matches += 2
         return matches
 
 
